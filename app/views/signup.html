@@ -9,30 +9,32 @@
     <link rel="stylesheet" media="screen" href="css/main.css">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
 </head>
-<body style="background-image:url(http://res.cloudinary.com/cloud101/image/upload/v1505820149/Simspons_Clouds_at7rah.jpg)">
+<body style="background-image:url(http://res.cloudinary.com/cloud101/image/upload/v1505835787/background_sofwgr.jpg)">
 <section class="ui container">
     <nav class="ui menu">
-        <header class="header item">Donation </header>
+        <header class="header item">Donation</header>
         <div class="right menu">
             <div class="ui simple dropdown item">
                 &emsp;Menu&emsp;&emsp;<i class="brown sidebar icon"></i>
                 <div class="menu">
                     <a id="login" class="item" href="/login">&emsp;Login&emsp;&nbsp;<i class="red sign in icon"></i></a>
-                    <a id="index" class="item" href="/">&emsp;Home&emsp;<i class="green home icon"></i></a>
+                    <a id="home" class="item" href="/">&emsp;Home&emsp;<i class="green home icon"></i></a>
                 </div>
             </div>
         </div>
     </nav>
     <section class="ui inverted grey segment">
-        <section class="ui raised segment">
+        <section class="ui yellow center aligned segment">
             <div class="ui grid">
                 <aside class="ui five wide column">
-                    <img src="images/homerpointing.png" class="ui big image">
+                    <img class="ui big image" src="images/homerpointing.png">
                 </aside>
+
                 <div class="ui ten wide column">
                     <div class="ui raised fluid form segment">
                         <form action="/register" method="POST">
-                            <h2 class="ui red center aligned header">Register</h2>
+                            <h2 class="ui red center aligned header">Register Now!!</h2>
+
                             <div class="two fields">
                                 <div class="field">
                                     <label>First Name</label>
@@ -49,24 +51,29 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="field">
-                                <label>Email</label>
-                                <div class="ui icon input">
-                                    <input placeholder="Email" type="text" name="email">
-                                    <i class="mail icon"></i>
+
+                            <div class="two fields">
+                                <div class="field">
+                                    <label>Email</label>
+                                    <div class="ui icon input">
+                                        <input placeholder="Email" type="text" name="email">
+                                        <i class="mail icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Password</label>
+                                    <div class="ui icon input">
+                                        <input type="password" name="password">
+                                        <i class="lock icon"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="field">
-                                <label>Password</label>
-                                <div class="ui icon input">
-                                    <input type="password" name="password">
-                                    <i class="lock icon"></i>
-                                </div>
-                            </div>
+
                             <button class="ui animated fade blue submit button">
                                 <div class="visible content"><i class="arrow circle up icon"></i>Sign Up</div>
                                 <div class="hidden content">Click to Save</div>
                             </button>
+
                         </form>
                     </div>
                 </div>
