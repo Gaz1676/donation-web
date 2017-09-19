@@ -20,3 +20,10 @@ exports.login = {
   },
 };
 
+exports.about = {
+
+  handler: (request, reply) => {
+    reply.file('./app/views/about.html');
+  },
+};
+
