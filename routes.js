@@ -16,4 +16,6 @@ module.exports = [
 
   { method: 'GET', path: '/login', config: Donations.login },
 
+  { method: 'GET', path: '/about', config: Donations.about },
+
 ];
