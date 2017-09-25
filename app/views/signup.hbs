@@ -1,0 +1,59 @@
+{{> welcomemenu }}
+
+<section class="ui inverted grey segment">
+    <section class="ui yellow segment">
+        <div class="ui grid">
+            <aside class="ui five wide column">
+                <img class="ui big image" src="images/homerpointing.png">
+            </aside>
+
+            <div class="ui ten wide column">
+                <div class="ui raised fluid form segment">
+                    <form action="/register" method="POST">
+                        <h2 class="ui red center aligned header">Register Now!!</h2>
+
+                        <div class="two fields">
+                            <div class="field">
+                                <label>First Name</label>
+                                <div class="ui icon input">
+                                    <input placeholder="First Name" type="text" name="firstName">
+                                    <i class="user icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Last Name</label>
+                                <div class="ui icon input">
+                                    <input placeholder="Last Name" type="text" name="lastName">
+                                    <i class="user icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="two fields">
+                            <div class="field">
+                                <label>Email</label>
+                                <div class="ui icon input">
+                                    <input placeholder="Email" type="text" name="email">
+                                    <i class="mail icon"></i>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Password</label>
+                                <div class="ui icon input">
+                                    <input type="password" name="password">
+                                    <i class="lock icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="ui animated fade blue submit button">
+                            <div class="visible content"><i class="arrow circle up icon"></i>Sign Up</div>
+                            <div class="hidden content">Click to Save</div>
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
