@@ -1,7 +1,7 @@
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Web Donation Lab - 2017
   ==========================     
 
-_&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;JavaScript, Node & HAPI lab created in WebStorm IDE_
+_&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;JavaScript, Node & HAPI lab created in WebStorm IDE_
 ***
 
   - Creation of a new simple node/HAPI project to serve a simple set of static views 
