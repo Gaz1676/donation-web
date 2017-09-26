@@ -1,7 +1,7 @@
 'use strict';
 
 exports.main = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     reply.view('main', { title: 'Welcome to Donations' });
   },
@@ -9,7 +9,7 @@ exports.main = {
 };
 
 exports.signup = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     reply.view('signup', { title: 'Sign up for Donations' });
   },
@@ -17,7 +17,7 @@ exports.signup = {
 };
 
 exports.login = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     reply.view('login', { title: 'Login to Donations' });
   },
@@ -25,7 +25,7 @@ exports.login = {
 };
 
 exports.register = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     const user = request.payload;
     this.users[user.email] = user;
@@ -35,11 +35,14 @@ exports.register = {
 };
 
 exports.authenticate = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     const user = request.payload;
     if ((user.email in this.users) && (user.password === this.users[user.email].password)) {
-      this.currentUser = this.users[user.email];
+      request.cookieAuth.set({
+        loggedIn: true,
+        loggedInUser: user.email,
+      });
       reply.redirect('/home');
     } else {
       reply.redirect('/signup');
@@ -49,15 +52,15 @@ exports.authenticate = {
 };
 
 exports.logout = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
+    request.cookieAuth.clear();
     reply.redirect('/');
   },
-
 };
 
 exports.about = {
-
+  auth: false, // reopens all accounts routes
   handler: function (request, reply) {
     reply.view('about', { title: 'About Donations' });
   },
