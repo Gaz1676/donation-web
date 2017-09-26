@@ -6,8 +6,8 @@ var server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 4000 });
 
 server.bind({
-  currentUser: {},
-  users: [{}],
+  //currentUser: {},
+  users: {},
   donations: [],
 });
 
@@ -34,6 +34,10 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
     cookie: 'donation-cookie',
     isSecure: false,
     ttl: 24 * 60 * 60 * 1000,
+  });
+
+  server.auth.default({
+    strategy: 'standard',
   });
 
   server.route(require('./routes'));
