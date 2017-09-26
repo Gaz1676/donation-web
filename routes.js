@@ -12,6 +12,8 @@ module.exports = [
   { method: 'POST', path: '/register', config: Accounts.register },
   { method: 'GET', path: '/logout', config: Accounts.logout },
   { method: 'GET', path: '/about', config: Accounts.about },
+  { method: 'GET', path: '/settings', config: Accounts.viewSettings },
+  { method: 'POST', path: '/settings', config: Accounts.updateSettings },
 
     //
   { method: 'GET', path: '/home', config: Donations.home },
