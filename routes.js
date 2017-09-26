@@ -4,6 +4,7 @@ const Assets = require('./app/controllers/assets');
 
 module.exports = [
 
+    // Accounts Routes
   { method: 'GET', path: '/', config: Accounts.main },
   { method: 'GET', path: '/signup', config: Accounts.signup },
   { method: 'GET', path: '/login', config: Accounts.login },
@@ -12,6 +13,7 @@ module.exports = [
   { method: 'GET', path: '/logout', config: Accounts.logout },
   { method: 'GET', path: '/about', config: Accounts.about },
 
+    //
   { method: 'GET', path: '/home', config: Donations.home },
   { method: 'GET', path: '/report', config: Donations.report },
   { method: 'POST', path: '/donate', config: Donations.donate },
