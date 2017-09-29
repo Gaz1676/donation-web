@@ -23,10 +23,9 @@ exports.donate = {
 
   handler: function (request, reply) {
     let data = request.payload;
-    var donorEmail = request.auth.credentials.loggedInUser;
+    let donorEmail = request.auth.credentials.loggedInUser;
     data.donor = this.users[donorEmail];
     this.donations.push(data);
     reply.redirect('/report');
   },
-
 };
