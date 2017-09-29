@@ -66,3 +66,23 @@ exports.about = {
   },
 
 };
+
+exports.viewSettings = {
+  handler: function (request, reply) {
+    let userEmail = request.auth.credentials.loggedInUser;
+    reply.view('settings', {
+      title: 'Update your settings',
+      user: this.users[userEmail],
+    });
+  },
+
+};
+
+exports.updateSettings = {
+  handler: function (request, reply) {
+    let user = request.payload;
+    let loggedInUser = request.auth.credentials.loggedInUser;
+    this.users[loggedInUser] = user;
+    reply.redirect('/settings');
+  },
+};
