@@ -10,7 +10,7 @@
                 <tr>
                     <th>Amount</th>
                     <th>Method donated</th>
-                    <th>Donor's email</th>
+                    <th>Donor</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -18,7 +18,7 @@
                     <tr>
                         <td> <i class="euro icon"></i>{{amount}} </td>
                         <td> {{method}} </td>
-                        <td>{{donor}}</td>
+                        <td>{{donor.firstName}} {{donor.lastName}}</td>
                     </tr>
                 {{/each}}
                 </tbody>
