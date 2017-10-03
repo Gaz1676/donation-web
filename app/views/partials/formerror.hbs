@@ -1,0 +1,18 @@
+<!--
+new partial to display potential errors in our forms
+this partial will only populate the view if errors are passed, otherwise it will be silent.
+-->
+
+{{#if errors}}
+<div class="ui negative message transition">
+    <i class="close icon"></i>
+    <div class="header">
+        There was some errors with your submission
+    </div>
+    <ul class="list">
+        {{#each errors}}
+        <li>{{message}}</li>
+        {{/each}}
+    </ul>
+</div>
+{{/if}}
