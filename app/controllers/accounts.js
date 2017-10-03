@@ -1,5 +1,7 @@
 'use strict';
 
+const Joi = require('joi');
+
 const User = require('../models/user');
 
 exports.main = {
@@ -26,7 +28,26 @@ exports.login = {
 
 };
 
+// payload: This defines a schema which defines rules that our fields must adhere to.
+// failAction: This is the handler to invoke of one or more of the fields fails the validation.
 exports.register = {
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view('signup', {
+        title: 'Sign up error',
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
   auth: false,
   handler: function (request, reply) {
     const user = new User(request.payload);
@@ -42,6 +63,19 @@ exports.register = {
 
 //  updated to consult the database when validating a user
 exports.authenticate = {
+  validate: {
+
+    payload: {
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+    failAction: function (request, reply, scource, error) {
+      reply.view('login', {
+        title: 'Login error and now',
+        errors: error.data.details,
+      }).code(400);
+    },
+  },
   auth: false,
   handler: function (request, reply) {
     const user = request.payload;
@@ -102,6 +136,23 @@ exports.updateSettings = {
   // returns a promise from the save() function
   // re renders the updated user details to the settings view.
 
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view('settings', {
+        title: 'Settings error',
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
   handler: function (request, reply) {
     const editedUser = request.payload;
     let loggedInUserEmail = request.auth.credentials.loggedInUser;
