@@ -62,6 +62,7 @@ exports.register = {
 };
 
 //  updated to consult the database when validating a user
+// Here is a fragment that will accomplish this (with error handling)
 exports.authenticate = {
   validate: {
 
@@ -132,7 +133,7 @@ exports.updateSettings = {
 
   // reads user details from the database
   // updates with new values entered by the user
-  // Here is a fragment that will accomplish this (without error handling)
+  // Here is a fragment that will accomplish this (with error handling)
   // returns a promise from the save() function
   // re renders the updated user details to the settings view.
 
