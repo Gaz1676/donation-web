@@ -11,12 +11,28 @@ const mongoose = require('mongoose');
 // retrieve further information on the donor with additional query.
 // using an object reference directly to the User object
 
+/*
 const donationSchema = mongoose.Schema({
   amount: Number,
   method: String,
   donor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
+  },
+});
+*/
+
+// extend the schema from above to refer to the candidate:
+const donationSchema = mongoose.Schema({
+  amount: Number,
+  method: String,
+  donor: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  candidate:  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Candidate',
   },
 });
 
