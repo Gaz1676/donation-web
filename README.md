@@ -26,14 +26,11 @@ _&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;J
 <img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1506355813/login_zcaie8.png"/>
 
 ### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Donate page
-<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1506355814/donateHome_ltofis.png"/>
-
-### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Donate page _(with dropdown selection)_
-<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1506355813/donateHome1_ecbuuw.png"/>
+<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1507636258/donate_ujpn2n.png"/>
 
 ### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Report page
-<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1506355814/report_v9vr4x.png"/>
+<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1507636258/report_t00prp.png"/>
 
-### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Report page _(with dropdown menu showing)_
-<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1506355815/reportDropdown_rtvome.png"/>
+### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Validation Error
+<img src="http://res.cloudinary.com/cloud101/image/upload/c_scale,h_500,w_1000/v1507636258/error_kz23cb.png"/>
 
