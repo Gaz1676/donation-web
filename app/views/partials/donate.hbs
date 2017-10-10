@@ -20,16 +20,27 @@
                         <div class="grouped inline fields">
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="method" value="paypal" required>
+                                    <input type="radio" name="method" value="paypal">
                                     <label>Paypal&emsp;<i class="blue paypal card icon"></i></label>
                                 </div>
                             </div>
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="method" value="direct" required>
+                                    <input type="radio" name="method" value="direct">
                                     <label>Direct&emsp;<i class="green money icon"></i></label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="grouped inline fields">
+                            <h3> Select Candidate </h3>
+                            {{#each candidates }}
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="candidate" value="{{lastName}},{{firstName}}">
+                                        <label>{{lastName}}, {{firstName}}</label>
+                                    </div>
+                                </div>
+                            {{/each}}
                         </div>
                         <button class="ui animated fade blue submit button">
                             <div class="visible content"><i class="euro icon"></i>Donate</div>
