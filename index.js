@@ -3,7 +3,11 @@
 const Hapi = require('hapi');
 
 let server = new Hapi.Server();
-server.connection({ port: process.env.PORT || 4000 });
+server.connection({ port: process.env.PORT || 4000,
+                    routes: {
+                        validate: {
+                            options: {
+                              abortEarly: false, }, }, }, });
 
 // server.bind({
 //  users: {},
