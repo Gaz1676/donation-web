@@ -3,17 +3,16 @@
 const Hapi = require('hapi');
 
 let server = new Hapi.Server();
-server.connection({ port: process.env.PORT || 4000,
-                    routes: {
-                        validate: {
-                            options: {
-                              abortEarly: false, }, }, }, });
-
-// server.bind({
-//  users: {},
-//  donations: [],
-//});
-// replaced with line below
+server.connection({
+  port: process.env.PORT || 4000,
+  routes: {
+    validate: {
+      options: {
+        abortEarly: false,
+      },
+    },
+  },
+});
 
 require('./app/models/db');
 
@@ -48,6 +47,9 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
   });
 
   server.route(require('./routes'));
+
+  //New route included into the application server
+  server.route(require('./routesapi'));
 
   server.start((err) => {
     if (err) {
