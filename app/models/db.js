@@ -28,7 +28,7 @@ mongoose.connection.on('disconnected', function () {
 mongoose.connection.on('connected', function () {
   console.log('Mongoose connected to ' + dbURI);
   if (process.env.NODE_ENV === 'production') {
-    var seeder = require('mongoose-seeder');
+    let seeder = require('mongoose-seeder');
     const data = require('./data.json');
     const Donation = require('./donation');
     const User = require('./user');

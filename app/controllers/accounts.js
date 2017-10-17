@@ -1,7 +1,6 @@
 'use strict';
 
 const Joi = require('joi');
-
 const User = require('../models/user');
 
 exports.main = {
@@ -36,8 +35,8 @@ exports.register = {
     payload: {
       firstName: Joi.string().required(),
       lastName: Joi.string().required(),
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
+      email: Joi.string().email({ unique: true }).required(),
+      password: Joi.string().min(6).max(20).required(),
     },
 
     failAction: function (request, reply, source, error) {
@@ -70,7 +69,7 @@ exports.authenticate = {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
     },
-    failAction: function (request, reply, scource, error) {
+    failAction: function (request, reply, source, error) {
       reply.view('login', {
         title: 'Login error and now',
         errors: error.data.details,
@@ -79,22 +78,15 @@ exports.authenticate = {
   },
   auth: false,
   handler: function (request, reply) {
-    const user = request.payload;
-    User.findOne({ email: user.email }).then(foundUser => {
-      if (foundUser && foundUser.password === user.password) {
-        request.cookieAuth.set({
-          loggedIn: true,
-          loggedInUser: user.email,
-        });
-        reply.redirect('/home');
-      } else {
-        reply.redirect('/signup');
-      }
-    }).catch(err => {
-      reply.redirect('/');
-    });
+    if (User.findOne({ email: request.payload.email }) === null) {
+      const user = new User(request.payload);
+      user.save().then(newUser => {
+        reply.redirect('/login');
+      }).catch(err => {
+        reply.redirect('/');
+      });
+    }
   },
-
 };
 
 exports.logout = {

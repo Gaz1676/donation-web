@@ -45,24 +45,6 @@ exports.report = {
   },
 };
 
-/*exports.donate = {
-  // When we create a donation, we will insert the users details
-  handler: function (request, reply) {
-    let userEmail = request.auth.credentials.loggedInUser;
-    User.findOne({ email: userEmail }).then(user => {
-      let data = request.payload;
-      const donation = new Donation(data);
-      donation.donor = user._id;
-      return donation.save();
-    }).then(newDonation => {
-      reply.redirect('/report');
-    }).catch(err => {
-      reply.redirect('/');
-    });
-  },
-
-};*/
-
 // Creating a donation is more complex, as we have to locate the current user in the database
 // only when these three queries are performed can we create and insert a new donation object
 // abortEarly: false returns all the errors found during validation
@@ -88,7 +70,6 @@ exports.donate = {
       });
     },
   },
-
   handler: function (request, reply) {
     let userEmail = request.auth.credentials.loggedInUser;
     let userId = null;
