@@ -46,12 +46,6 @@
       "method": "direct",
       "donor": "->users.marge",
       "candidate": "->candidates.lisa"
-    },
-    "three": {
-      "amount": 430,
-      "method": "paypal",
-      "donor": "->users.homer",
-      "candidate": "->candidates.Ned"
     }
   }
 }
