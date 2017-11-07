@@ -17,13 +17,36 @@ exports.find = {
 
 };
 
-exports.findOne = {
+/*exports.findOne = {
 
   auth: false,
 
   handler: function (request, reply) {
     Candidate.findOne({ _id: request.params.id }).then(candidate => {
       reply(candidate);
+    }).catch(err => {
+      reply(Boom.notFound('id not found'));
+    });
+  },
+};*/
+
+// Error when running above code during testing
+// This is a concocted id, but the request is succeeding, but returning null.
+// This is what is causing our utilities to generate an error in the test client.
+// An alternative version of findOne to fix the issue
+// The findOne query will generate an exception if the key is an invalid length,
+// But will return a null object if it fails to find a matching object for a correctly formed key.
+
+exports.findOne = {
+
+  auth: false,
+
+  handler: function (request, reply) {
+    Candidate.findOne({ _id: request.params.id }).then(candidate => {
+      if (candidate != null) {
+        reply(candidate);
+      } else {
+        reply(Boom.notFound('id not found'));}
     }).catch(err => {
       reply(Boom.notFound('id not found'));
     });

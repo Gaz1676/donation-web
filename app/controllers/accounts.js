@@ -12,7 +12,7 @@ exports.main = {
 };
 
 exports.signup = {
-  auth: false, // reopens all accounts routes
+  auth: false,
   handler: function (request, reply) {
     reply.view('signup', { title: 'Sign up for Donations' });
   },
@@ -20,7 +20,7 @@ exports.signup = {
 };
 
 exports.login = {
-  auth: false, // reopens all accounts routes
+  auth: false,
   handler: function (request, reply) {
     reply.view('login', { title: 'Login to Donations' });
   },
@@ -32,6 +32,7 @@ exports.login = {
 exports.register = {
   validate: {
 
+    // lays out the rules for our fields
     payload: {
       firstName: Joi.string().required(),
       lastName: Joi.string().required(),
@@ -39,6 +40,7 @@ exports.register = {
       password: Joi.string().min(6).max(20).required(),
     },
 
+    // used if validation fails
     failAction: function (request, reply, source, error) {
       reply.view('signup', {
         title: 'Sign up error',
@@ -76,21 +78,30 @@ exports.authenticate = {
       }).code(400);
     },
   },
+
   auth: false,
   handler: function (request, reply) {
-    if (User.findOne({ email: request.payload.email }) === null) {
-      const user = new User(request.payload);
-      user.save().then(newUser => {
-        reply.redirect('/login');
-      }).catch(err => {
-        reply.redirect('/');
-      });
-    }
+    const user = request.payload;
+    User.findOne({ email: user.email }).then(foundUser => {
+      if (foundUser && foundUser.password === user.password) {
+        request.cookieAuth.set({      //setting a session cookie after user credentials are verified
+          loggedIn: true,
+          loggedInUser: user.email,
+        });
+        console.log('this is authenticating');
+        console.log(foundUser);
+        reply.redirect('/home');
+      } else {
+        reply.redirect('/signup');
+      }
+    }).catch(err => {
+      reply.redirect('/');
+    });
   },
 };
 
 exports.logout = {
-  auth: false, // reopens all accounts routes
+  auth: false,
   handler: function (request, reply) {
     request.cookieAuth.clear();
     reply.redirect('/');
@@ -98,7 +109,7 @@ exports.logout = {
 };
 
 exports.about = {
-  auth: false, // reopens all accounts routes
+  auth: false,
   handler: function (request, reply) {
     reply.view('about', { title: 'About Donations' });
   },

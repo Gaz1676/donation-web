@@ -1,4 +1,5 @@
 'use strict';
+
 // models folder is a key step in may the application perform some useful function.
 // creates a new module to represent a Schema for a User model
 // The accounts controller now requires this model

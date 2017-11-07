@@ -14,8 +14,10 @@ server.connection({
   },
 });
 
+// import of the db just created
 require('./app/models/db');
 
+// plugins registration
 server.register([require('inert'), require('vision'), require('hapi-auth-cookie')], err => {
 
   if (err) {
@@ -34,6 +36,7 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
     isCached: false,
   });
 
+  // cookie plugin
   server.auth.strategy('standard', 'cookie', {
     password: 'secretpasswordnotrevealedtoanyone',
     cookie: 'donation-cookie',
@@ -42,6 +45,7 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
     redirectTo: '/login',
   });
 
+  // strategy set to all routes
   server.auth.default({
     strategy: 'standard',
   });
