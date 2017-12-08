@@ -1,5 +1,5 @@
 {
-  "donationService": "https://stormy-brushlands-56991.herokuapp.com",
+  "donationService": "http://gary:4000",
   "users": [
     {
       "firstName": "Homer",
@@ -30,6 +30,20 @@
       "firstName": "Donald",
       "lastName": "Simpson",
       "office": "President"
+    }
+  ],
+  "donations": [
+    {
+      "amount": 40,
+      "method": "paypal"
+    },
+    {
+      "amount": 90,
+      "method": "direct"
+    },
+    {
+      "amount": 430,
+      "method": "paypal"
     }
   ],
   "newCandidate": {
