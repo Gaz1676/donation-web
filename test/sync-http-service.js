@@ -7,11 +7,30 @@ class SyncHttpService {
 
   constructor(baseUrl) {
     this.baseUrl = baseUrl;
+    this.authHeadder = null;
+  }
+
+  setAuth(url, user) {
+    const res = request('POST', this.baseUrl + url, { json: user });
+    if (res.statusCode === 201) {
+      let payload = JSON.parse(res.getBody('utf8'));
+      if (payload.success) {
+        this.authHeadder = { Authorization: 'bearer ' + payload.token, };
+        return true;
+      }
+    }
+
+    this.authHeadder = null;
+    return false;
+  }
+
+  clearAuth() {
+    this.authHeadder = null;
   }
 
   get(url) {
     let returnedObj = null;
-    let res = request('GET', this.baseUrl + url);
+    let res = request('GET', this.baseUrl + url, { headers: this.authHeadder });
     if (res.statusCode < 300) {
       returnedObj = JSON.parse(res.getBody('utf8'));
     }
@@ -21,7 +40,7 @@ class SyncHttpService {
 
   post(url, obj) {
     let returnedObj = null;
-    let res = request('POST', this.baseUrl + url, { json: obj });
+    let res = request('POST', this.baseUrl + url, { json: obj, headers: this.authHeadder });
     if (res.statusCode < 300) {
       returnedObj = JSON.parse(res.getBody('utf8'));
     }
@@ -31,7 +50,7 @@ class SyncHttpService {
 
   //  provides support for the delete operations in the encapsulated layers
   delete (url) {
-    let res = request('DELETE', this.baseUrl + url);
+    let res = request('DELETE', this.baseUrl + url, this.authHeadder);
     return res.statusCode;
   }
 
