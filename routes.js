@@ -14,8 +14,6 @@ module.exports = [
   { method: 'GET', path: '/about', config: Accounts.about },
   { method: 'GET', path: '/settings', config: Accounts.viewSettings },
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
-
-    //
   { method: 'GET', path: '/home', config: Donations.home },
   { method: 'GET', path: '/report', config: Donations.report },
   { method: 'POST', path: '/donate', config: Donations.donate },
@@ -26,5 +24,4 @@ module.exports = [
     config: { auth: false },
     handler: Assets.servePublicDirectory,
   },
-
 ];
