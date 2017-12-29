@@ -1,39 +1,39 @@
 <section class="ui inverted grey segment">
-    <section class="ui yellow raised segment">
-        <div class="ui grid">
-            <aside class="eight wide column">
-                <img src="images/homer5.jpg" class="ui medium centered image">
-            </aside>
-            <article class="eight wide column">
-                <table class="ui center aligned celled table segment">
-                    <thead>
+<section class="ui yellow raised segment">
+    <div class="ui grid">
+        <aside class="eight wide column">
+            <img src="images/homer5.jpg" class="ui medium centered image">
+        </aside>
+        <article class="eight wide column">
+            <table class="ui center aligned celled table segment">
+                <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Method donated</th>
+                    <th>Donor</th>
+                    <th>Candidate</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each donations}}
                     <tr>
-                        <th>Amount</th>
-                        <th>Method donated</th>
-                        <th>Donor</th>
-                        <th>Candidate</th>
+                        <td> <i class="euro icon"></i>{{amount}} </td>
+                        <td> {{method}} </td>
+                        <td>{{donor.firstName}} {{donor.lastName}}</td>
+                        <td> {{candidate.lastName}}, {{candidate.firstName}} </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {{#each donations}}
-                        <tr>
-                            <td> <i class="euro icon"></i>{{amount}} </td>
-                            <td> {{method}} </td>
-                            <td>{{donor.firstName}} {{donor.lastName}}</td>
-                            <td> {{candidate.lastName}}, {{candidate.firstName}} </td>
-                        </tr>
-                    {{/each}}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th><i class="euro icon"></i>{{total}}</th>
-                        <th>Total</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </tfoot>
-                </table>
-            </article>
-        </div>
-    </section>
+                {{/each}}
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th><i class="euro icon"></i>{{total}}</th>
+                    <th>Total</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </tfoot>
+            </table>
+        </article>
+    </div>
+</section>
 </section>
