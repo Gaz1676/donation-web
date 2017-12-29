@@ -15,13 +15,13 @@ exports.home = {
             reply.view('home', {
                 title: 'Make a Donation',
                 candidates: candidates,
-              });
-          }).catch(err => {
+            });
+        }).catch(err => {
             reply.redirect('/');
-          });
-      },
+        });
+    },
 
-  };
+};
 
 // ensures that the donor object will be retrieve on the single query
 // thus our donor object should successfully resolve in the form.
@@ -32,17 +32,17 @@ exports.report = {
             let total = 0;
             allDonations.forEach(donation => {
                 total += donation.amount;
-              });
+            });
             reply.view('report', {
                 title: 'Donations to Date',
                 donations: allDonations,
                 total: total,
-              });
-          }).catch(err => {
+            });
+        }).catch(err => {
             reply.redirect('/');
-          });
-      },
-  };
+        });
+    },
+};
 
 // Creating a donation is more complex, as we have to locate the current user in the database
 // only when these three queries are performed can we create and insert a new donation object
@@ -55,7 +55,7 @@ exports.donate = {
             amount: Joi.number().required(),
             method: Joi.string().required(),
             candidate: Joi.string().required(),
-          },
+        },
 
         failAction: function (request, reply, source, error) {
             Candidate.find({}).then(candidates => {
@@ -63,12 +63,12 @@ exports.donate = {
                     title: 'Invalid Donation',
                     candidates: candidates,
                     errors: error.data.details,
-                  }).code(400);
-              }).catch(err => {
+                }).code(400);
+            }).catch(err => {
                 reply.redirect('/');
-              });
-          },
-      },
+            });
+        },
+    },
     handler: function (request, reply) {
         let userEmail = request.auth.credentials.loggedInUser;
         let userId = null;
@@ -79,14 +79,14 @@ exports.donate = {
             donation = new Donation(data);
             const rawCandidate = request.payload.candidate.split(',');
             return Candidate.findOne({ lastName: rawCandidate[0], firstName: rawCandidate[1] });
-          }).then(candidate => {
+        }).then(candidate => {
             donation.donor = userId;
             donation.candidate = candidate._id;
             return donation.save();
-          }).then(newDonation => {
+        }).then(newDonation => {
             reply.redirect('/report');
-          }).catch(err => {
+        }).catch(err => {
             reply.redirect('/');
-          });
-      },
-  };
+        });
+    },
+};

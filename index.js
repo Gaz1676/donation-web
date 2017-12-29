@@ -1,14 +1,11 @@
 'use strict';
 
 const Hapi = require('hapi');
-
-// make our app to be accessible from an SPA,
-// we explicitly enable it.
-// This package here can make it easier:
 const corsHeaders = require('hapi-cors-headers');
 const utils = require('./app/api/utils');
 
 let server = new Hapi.Server();
+
 server.connection({
     port: process.env.PORT || 4000,
     routes: {
