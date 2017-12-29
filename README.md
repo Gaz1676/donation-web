@@ -12,9 +12,9 @@ _&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;J
   
   ***
   
-  ### Deployed Link
+  ### Deployed Link - Used in Android App for Integration
   
-  <a href="https://donation-web-oxjkfqmbyx.now.sh/">Zeit Deployment - My Donation Web App</a>
+  <a href="https://donation-web-wkbiqxhlhl.now.sh/">Zeit Deployment - My Donation Web App</a>
 ***
 
  ## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Screenshots of Donation Pages
