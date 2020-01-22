@@ -37,19 +37,19 @@
     "_model": "Donation",
     "one": {
       "amount": 40,
-      "method": "paypal",
+      "method": "PayBuddy",
       "donor": "->users.bart",
       "candidate": "->candidates.lisa"
     },
     "two": {
       "amount": 90,
-      "method": "direct",
+      "method": "Direct",
       "donor": "->users.marge",
       "candidate": "->candidates.lisa"
     },
     "three": {
       "amount": 430,
-      "method": "paypal",
+      "method": "PayBuddy",
       "donor": "->users.homer",
       "candidate": "->candidates.maggie"
     }

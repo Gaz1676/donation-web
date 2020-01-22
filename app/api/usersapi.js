@@ -7,6 +7,7 @@ const utils = require('./utils.js');
 exports.find = {
 
   auth: false,
+
   // auth: {
   //   strategy: 'jwt',
   // },
@@ -21,7 +22,6 @@ exports.find = {
 };
 
 exports.findOne = {
-
   auth: false,
   // auth: {
   //   strategy: 'jwt',

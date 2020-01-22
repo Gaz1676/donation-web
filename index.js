@@ -27,6 +27,7 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
       throw err;
     }
 
+    // assign handlebars engine for views to the server
     server.views({
         engines: {
             hbs: require('handlebars'),
